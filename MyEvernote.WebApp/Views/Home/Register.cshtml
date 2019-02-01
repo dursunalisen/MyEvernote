@@ -1,0 +1,55 @@
+﻿@using MyEvernote.Entities2.ValueObjects
+@model RegisterViewModel
+@{
+    ViewBag.Title = "Kayıt Sayfası";
+}
+
+
+<link href="~/Content/login-register.css" rel="stylesheet" />
+<link href="~/Content/validation-summary.css" rel="stylesheet" />
+
+
+
+@using (Html.BeginForm())
+{
+
+    <section class="login-info">
+        <div class="container">
+            <div class="row main">
+
+                <div class="main-content">
+                    <div class="form-header">
+                        <h1 class="text-center ">Kayıt Formu </h1>
+                    </div>
+
+                    <hr />
+
+
+                    <div class="input-group ">
+                        <i class="input-group-addon"> <i class="fa fa- " aria-hidden="true"></i></i>
+                        @Html.TextBoxFor(model => model.Username, new { @class = "form-control", placeholder = "Kullanıcı Adınız" })
+                    </div>
+                    <div class="input-group ">
+                        @* <i class="fa fa-2x fa-user-circle-o "></i>*@
+                        @Html.TextBoxFor(model => model.Email, new { @class = "form-control", placeholder = "E mail" })
+                    </div>
+                    <div class="input-group">
+                        <!-- Bu kısımda type password yaparak LoginViewModel deki Datatype özelliğini açmış olduk ve ya ezmiş olduk diyebiliriz
+                        Çünkü TextBoxFor o özelliği tanımıyor ve password alanı gizlenmiyor -->
+                        @Html.TextBoxFor(model => model.Password, new { @class = "form-control", placeholder = "Sifreniz", type = "password" })
+                    </div>
+                    <div class="input-group">
+                        @Html.TextBoxFor(model => model.RePassword, new { @class = "form-control", placeholder = "Sifre tekrar", type = "password" })
+                    </div>
+                    <div class="form-group ">
+                        <button type="submit" class="btn btn-danger btn-lg btn-block login-button">Kayıt Ol</button>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+}
+

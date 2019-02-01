@@ -1,0 +1,49 @@
+﻿
+
+.main {
+    margin-top: 50px;
+}
+
+.main-content {
+     background-color:white;
+    border: 2px solid black;
+    margin: 0 auto;
+    max-width: 800px;
+    padding: 20px 40px;
+    color: #ccc;
+    text-shadow: none;
+}
+
+
+.input-group {
+    margin: 20px 0px;
+    width:500px;
+}
+
+.input-group-addon {
+    color: #009edf;
+    font-size: 17px;
+}
+
+.login-button {
+    margin: 0px auto;
+    max-width: 200px;
+    
+}
+
+
+.form-header {
+    background-color: #009edf;
+    max-width: 400px;
+    margin: 0 auto;
+    color: white;
+    width: 100%;
+    padding: 20px 0px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px
+}
+
+.remember {
+    color: black;
+}
+

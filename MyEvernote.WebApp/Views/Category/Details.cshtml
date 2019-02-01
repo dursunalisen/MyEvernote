@@ -1,0 +1,76 @@
+﻿@model MyEvernote.Entities2.Category
+
+@{
+    ViewBag.Title = "Details";
+}
+<br />
+<br />
+
+<div class="row">
+    <div class="col-md-10 offset-1">
+        <h2>Details</h2>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-10 offset-1">
+
+        <h4>Category Detayları</h4>
+        <hr />   
+        <div>
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Title)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Title)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Description)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.CretedOn)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.CretedOn)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.ModifiedOn)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ModifiedOn)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.ModifiedUsername)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ModifiedUsername)
+                </dd>
+                <p>
+                    <a href="/Category/Edit/@Model.Id" class="btn btn-warning">
+                        <i class="fa fa-edit"></i>Edit
+                    </a>
+                    <a href="/Category/Index" class="btn">
+                        <i class="fa fa-arrow-circle-left"></i>Back To List
+                    </a>
+
+                </p>
+            </dl>
+        </div>
+       
+    </div>
+    </div>
+   
+

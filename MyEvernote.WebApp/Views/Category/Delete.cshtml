@@ -1,0 +1,77 @@
+﻿@model MyEvernote.Entities2.Category
+   <br />
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div class="row">
+    <div class="col-md-8 offset-2">
+        <h2>Delete</h2>
+        <h3>Are you sure you want to delete this?</h3>
+    </div>
+</div>
+
+
+
+<div class="row">
+    <div class="col-md-8 offset-2">
+        <h4>Category</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Title)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.CretedOn)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CretedOn)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ModifiedOn)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ModifiedOn)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ModifiedUsername)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ModifiedUsername)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <button type="submit" class="btn btn-danger">
+                <i class="fa fa-remove"></i> Remove
+            </button>
+            @Html.ActionLink("Back to List", "Index", "Category", null, new { @class = "btn btn-default" })
+          
+        </div>
+        }
+    </div>
+</div>

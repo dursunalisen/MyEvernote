@@ -1,0 +1,166 @@
+﻿@using MyEvernote.Entities2
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Shop Homepage - Start Bootstrap Template</title>
+
+    <!-- Bootstrap core CSS -->
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="~/Content/shop-homepage.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</head>
+<body>
+    @{ 
+        EvernoteUser user = null;
+        if (Session["login"] != null)
+        {
+            user = Session["login"] as EvernoteUser;
+        }
+
+    }
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/Home/Index"> My Evermote</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    @if (user != null)
+                    {
+                        
+                        <li class="dropdown" >
+                            <a href="/Note/MyNotes" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-user 6px">
+
+                                    </i>Yönetim Paneli<i class="fa-caret-down"></i></a>
+                            <ul class="fa dropdown-menu">
+                                <li>
+                                    <a href="/Note/Create"><i class="fa fa-plus"></i>Not Ekle</a>
+                                </li>
+                                <li role="separator" class="dropdown-divider"></li>
+                                <li>
+                                    <a href="/Note/Index"><i class="fa fa-list"></i>Notlarım</a>
+                                </li>
+                                <li role="separator" class="dropdown-divider"></li>
+                                <li>
+                                    <a href="/Note/MyLikedNotes"><i class="fa fa-heart"></i>Beğendiklerim</a>
+                                </li>
+
+                                @if (user.IsAdmin)
+                                {
+                                    <li role="presentation" class="dropdown-divider"></li>
+                                    <li>
+                                        <a href="~/Category/Create"><i class="fa fa-plus"></i>Kategori Ekle</a>
+                                    </li>
+                                    <li role="separator" class="dropdown-divider"></li>
+                                    <li>
+                                        <a href="~/Category/Index"><i class="fa fa-list"></i>Kategoriler</a>
+                                    </li>
+                                    <li role="separator" class="dropdown-divider"></li>
+                                    <li>
+                                        <a href="~/EvernoteUser/Create"><i class="fa fa-plus"></i>Kullanıcı Ekle</a>
+                                    </li>
+                                    <li role="separator" class="dropdown-divider"></li>
+                                    <li>
+                                        <a href="~/EvernoteUser/Index"><i class="fa fa-list"></i>Kullancılar</a>
+                                    </li>
+
+                                }
+                            </ul>
+                </li>
+
+                    }
+
+                    <li class="fa-align-left">
+                        <a href="/Home/MostLiked">
+                            <i class="fa fa-heart"></i>En Beğenilenler
+                        </a>
+                        
+                    </li>
+                   
+                    <li class="fa-align-left">
+                        <a href="/Home/Index">
+                            <i class="fa fa-pencil-square"></i>Son Yazılar
+                        </a>
+                    </li>
+
+                    <li class="fa-align-left">
+                        <a href="/Home/About">
+                            <i class="fa fa-info"></i> Hakkımızda
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav ml-auto">
+                    @if (user == null)
+                    {
+                        <li>
+                            <a href="/Home/Login">
+                                <i class="fa fa-user-circle"></i>Giriş
+                            </a>
+                        </li>
+                        <li class="fa-align-left">
+                            <a href="/Home/Register">
+                                <i class="fa fa-user-circle-o"></i>  Üye Ol
+                            </a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a href="/Home/ShowProfile"></a>
+                        </li>
+
+                        <li class="dropdown">
+
+                <a href="/Home/ShowProfile" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                   aria-expanded="false">
+                    <i class="fa fa-user"></i>@user.Username<i class="fa-caret-down"></i>
+                </a>
+                <ul class="fa dropdown-menu">
+                    <li>
+                        <a href="/Home/ShowProfile">
+                            <i class="fa fa-user"></i>Profili Göster
+                        </a>
+                    </li>
+                    <li role="separator" class="dropdown-divider"> </li>
+                    <li>
+                        <a href="/Home/EditProfile">
+                            <i class="fa fa-edit"></i>Profili Düzenle
+                        </a>
+                    </li>
+                    <li role="separator" class="dropdown-divider"></li>
+                    <li>
+                        <a href="/Home/DeleteProfile" onclick="return confirm('Hesap silinsin mi eminmisiniz');">
+                            <i class="fa fa-trash"></i>Profil Sİl
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+                        
+                        <li class="fa-align-left">
+                            <a href="/Home/LogOut">
+                                <i class="fa fa-sign-out"></i>Çıkış
+                            </a>
+                        </li>
+                    }
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    @RenderBody()
+   @RenderSection("footer",required:false)
+</body>
+</html>
